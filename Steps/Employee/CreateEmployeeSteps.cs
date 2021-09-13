@@ -1,4 +1,6 @@
 ﻿using Cwi.TreinamentoTesteAutomatizado.Controllers;
+using NUnit.Framework;
+using System.Net;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
@@ -29,13 +31,12 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.Employee
         [Then(@"o funcionário não será cadastrado")]
         public void EntaoOFuncionarioNaoSeraCadastrado()
         {
-            //ScenarioContext.Current.Pending();
+            Assert.That(HttpRequestController.GetResponseHttpStatusCode(), Is.Not.EqualTo(HttpStatusCode.Created));
         }
 
         [Then(@"será retornado uma mensagem de falha de autenticação")]
         public void EntaoSeraRetornadoUmaMensagemDeFalhaDeAutenticacao()
         {
-            //ScenarioContext.Current.Pending();
         }
 
     }

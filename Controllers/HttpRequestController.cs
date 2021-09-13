@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -34,6 +35,11 @@ namespace Cwi.TreinamentoTesteAutomatizado.Controllers
             request.Method = GetHttpMethodFromName(httpMethodName);
 
             HttpResponseMessage = await HttpClientFactory.CreateClient().SendAsync(request);
+        }
+
+        public HttpStatusCode GetResponseHttpStatusCode()
+        {
+            return HttpResponseMessage.StatusCode;
         }
 
         private HttpMethod GetHttpMethodFromName(string httpMethodName)
