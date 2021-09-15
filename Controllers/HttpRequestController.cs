@@ -26,6 +26,11 @@ namespace Cwi.TreinamentoTesteAutomatizado.Controllers
             return HttpRequestMessage;
         }
 
+        public void RemoveHeader(string name)
+        {
+            GetHttpRequestMessage().Headers.Remove(name);
+        }
+
         public async Task SendAsync(string endpoint, string httpMethodName)
         {
             var request = GetHttpRequestMessage();

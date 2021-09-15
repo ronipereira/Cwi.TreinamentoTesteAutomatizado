@@ -19,7 +19,7 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.Employee
         [Given(@"que o usuário não esteja autenticado")]
         public void DadoQueOUsuarioNaoEstejaAutenticado()
         {
-            //ScenarioContext.Current.Pending();
+            HttpRequestController.RemoveHeader("Authorization");
         }
 
         [Given(@"que seja solicitado a criação de um novo funcionário")]
@@ -37,6 +37,7 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.Employee
         [Then(@"será retornado uma mensagem de falha de autenticação")]
         public void EntaoSeraRetornadoUmaMensagemDeFalhaDeAutenticacao()
         {
+            Assert.That(HttpRequestController.GetResponseHttpStatusCode(), Is.EqualTo(HttpStatusCode.Unauthorized));
         }
 
     }
