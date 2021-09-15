@@ -16,12 +16,6 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.Employee
             HttpRequestController = httpRequestController;
         }
 
-        [Given(@"que o usuário não esteja autenticado")]
-        public void DadoQueOUsuarioNaoEstejaAutenticado()
-        {
-            HttpRequestController.RemoveHeader("Authorization");
-        }
-
         [Given(@"que seja solicitado a criação de um novo funcionário")]
         public async Task DadoQueSejaSolicitadoACriacaoDeUmNovoFuncionario()
         {
@@ -40,5 +34,10 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.Employee
             Assert.That(HttpRequestController.GetResponseHttpStatusCode(), Is.EqualTo(HttpStatusCode.Unauthorized));
         }
 
+        [Then(@"o funcionário será cadastrado")]
+        public void EntaoOFuncionarioSeraCadastrado()
+        {
+            Assert.That(HttpRequestController.GetResponseHttpStatusCode(), Is.EqualTo(HttpStatusCode.Created));
+        }
     }
 }
