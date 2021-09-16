@@ -77,6 +77,15 @@ namespace Cwi.TreinamentoTesteAutomatizado.Features.Employee
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 8
+#line hidden
+#line 9
+ testRunner.Given("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Cadastro de funcionário sem autenticação")]
         [NUnit.Framework.CategoryAttribute("CreateEmployee")]
@@ -86,7 +95,7 @@ namespace Cwi.TreinamentoTesteAutomatizado.Features.Employee
                     "CreateEmployee"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastro de funcionário sem autenticação", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 9
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -106,16 +115,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 10
- testRunner.Given("que o usuário não esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
-#line hidden
-#line 11
- testRunner.And("que seja solicitado a criação de um novo funcionário", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line hidden
-#line 12
- testRunner.Then("o funcionário não será cadastrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line 8
+this.FeatureBackground();
 #line hidden
 #line 13
+ testRunner.Given("que o usuário não esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+#line 14
+ testRunner.And("que seja solicitado a criação de um novo funcionário", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 15
+ testRunner.Then("o funcionário não será cadastrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+#line 16
  testRunner.And("será retornado uma mensagem de falha de autenticação", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             }
@@ -131,7 +143,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "CreateEmployee"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastro de funcionário com sucesso", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 16
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -151,13 +163,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 17
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 20
  testRunner.Given("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
-#line 18
+#line 21
  testRunner.And("que seja solicitado a criação de um novo funcionário", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 19
+#line 22
  testRunner.Then("o funcionário será cadastrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             }

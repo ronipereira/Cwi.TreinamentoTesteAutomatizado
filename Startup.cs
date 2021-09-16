@@ -2,6 +2,7 @@
 using Cwi.TreinamentoTesteAutomatizado.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Npgsql;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -24,9 +25,11 @@ namespace Cwi.TreinamentoTesteAutomatizado
         {
             var configuration = GetConfiguration();
             var httpRequestController = new HttpRequestController(GetHttpClientFactory(), configuration["ExampleApiUrl"]);
+            var postgreDatabaseController = new PostgreDatabaseController(new NpgsqlConnection(configuration["ConnectionStrings:ExampleDb"]));
 
             ObjectContainer.RegisterInstanceAs<IConfiguration>(configuration);
             ObjectContainer.RegisterInstanceAs<HttpRequestController>(httpRequestController);
+            ObjectContainer.RegisterInstanceAs<PostgreDatabaseController>(postgreDatabaseController);
         }
 
         private IConfiguration GetConfiguration()

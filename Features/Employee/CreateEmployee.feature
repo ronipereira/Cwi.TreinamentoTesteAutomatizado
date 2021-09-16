@@ -5,6 +5,9 @@ Funcionalidade: Cadastro de funcionário
 	Sendo um usuário com as devidas permissões
 	Quero poder cadastrar um novo funcionário
 
+Contexto: 
+	Dado que a base de dados esteja limpa
+
 @CreateEmployee
 Cenario: Cadastro de funcionário sem autenticação
 	Dado que o usuário não esteja autenticado
