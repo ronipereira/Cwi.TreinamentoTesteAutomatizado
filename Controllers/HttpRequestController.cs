@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Cwi.TreinamentoTesteAutomatizado.Controllers
@@ -29,6 +31,23 @@ namespace Cwi.TreinamentoTesteAutomatizado.Controllers
         public void RemoveHeader(string name)
         {
             GetHttpRequestMessage().Headers.Remove(name);
+        }
+
+        public void AddJsonBody(object body)
+        {
+            GetHttpRequestMessage().Content = PrepareJsonBody(body);
+        }
+
+        private HttpContent PrepareJsonBody(object body)
+        {
+            if (body.GetType().IsPrimitive || body is string)
+            {
+                return new StringContent(body.ToString(), Encoding.UTF8, "application/json");
+            }
+            else
+            {
+                return new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
+            }
         }
 
         public async Task SendAsync(string endpoint, string httpMethodName)

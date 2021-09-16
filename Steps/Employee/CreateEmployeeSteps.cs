@@ -7,6 +7,7 @@ using TechTalk.SpecFlow;
 namespace Cwi.TreinamentoTesteAutomatizado.Steps.Employee
 {
     [Binding]
+    [Scope(Tag = "CreateEmployee")]
     public class CreateEmployeeSteps
     {
         private readonly HttpRequestController HttpRequestController;

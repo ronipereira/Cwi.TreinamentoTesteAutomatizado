@@ -1,4 +1,5 @@
 ﻿using Cwi.TreinamentoTesteAutomatizado.Controllers;
+using Microsoft.Extensions.Configuration;
 using TechTalk.SpecFlow;
 
 namespace Cwi.TreinamentoTesteAutomatizado.Steps.Common
@@ -8,15 +9,17 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.Common
     {
         private readonly HttpRequestController HttpRequestController;
 
-        public AuthenticationSteps(HttpRequestController httpRequestController)
+        public AuthenticationSteps(HttpRequestController httpRequestController, IConfiguration configuration)
         {
             HttpRequestController = httpRequestController;
         }
 
         [Given(@"que o usuário esteja autenticado")]
-        public void DadoQueOUsuarioEstejaAutenticado()
+        public async Task DadoQueOUsuarioEstejaAutenticado()
         {
-            ScenarioContext.Current.Pending();
+            HttpRequestController.AddJsonBody(new { Username = "", Password = "" });
+
+            await HttpRequestController.SendAsync("v1/public/auth", "POST");
         }
 
         [Given(@"que o usuário não esteja autenticado")]
