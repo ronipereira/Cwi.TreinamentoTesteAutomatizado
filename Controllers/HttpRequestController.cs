@@ -33,6 +33,11 @@ namespace Cwi.TreinamentoTesteAutomatizado.Controllers
             GetHttpRequestMessage().Headers.Remove(name);
         }
 
+        public void AddHeader(string name, string value)
+        {
+            GetHttpRequestMessage().Headers.Add(name, value);
+        }
+
         public void AddJsonBody(object body)
         {
             GetHttpRequestMessage().Content = PrepareJsonBody(body);
@@ -59,11 +64,27 @@ namespace Cwi.TreinamentoTesteAutomatizado.Controllers
             request.Method = GetHttpMethodFromName(httpMethodName);
 
             HttpResponseMessage = await HttpClientFactory.CreateClient().SendAsync(request);
+
+            HttpRequestMessage.Dispose();
+            HttpRequestMessage = null;
         }
 
         public HttpStatusCode GetResponseHttpStatusCode()
         {
             return HttpResponseMessage.StatusCode;
+        }
+
+        public async Task<T> GetTypedResponseBody<T>()
+        {
+            var responseContent = await GetResponseBodyContent();
+
+            return JsonConvert.DeserializeObject<T>(responseContent);
+        }
+
+        public async Task<string> GetResponseBodyContent()
+        {
+            using var httpContent = HttpResponseMessage.Content;
+            return await httpContent.ReadAsStringAsync();
         }
 
         private HttpMethod GetHttpMethodFromName(string httpMethodName)

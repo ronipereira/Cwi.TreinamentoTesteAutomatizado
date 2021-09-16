@@ -20,6 +20,7 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.Employee
         [Given(@"que seja solicitado a criação de um novo funcionário")]
         public async Task DadoQueSejaSolicitadoACriacaoDeUmNovoFuncionario()
         {
+            HttpRequestController.AddJsonBody(new { Name = "Funcionario 1", Email = "funcionario1@empresa.com.br" });
             await HttpRequestController.SendAsync("v1/employees", "POST");
         }
 
