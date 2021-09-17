@@ -59,9 +59,24 @@ namespace Cwi.TreinamentoTesteAutomatizado.Controllers
             return await Connection.QueryAsync(query);
         }
 
+        public async Task<IEnumerable<object>> InsertDatabase(string tableName, Table table)
+        {
+            var insertColumns = string.Join(", ", GetColumnsForInsert(table));
+            var values = string.Join(" AND ", GetFilterValues(table));
+
+            var query = $"INSERT INTO {tableName}({insertColumns}) VALUES {values}";
+
+            return await Connection.QueryAsync(query);
+        }
+
         private string[] GetColumnsForSelect(Table table)
         {
             return table.Header.Select(x => $"{x} AS \"{x}\"").ToArray();
+        }
+
+        private string[] GetColumnsForInsert(Table table)
+        {
+            return table.Header.ToArray();
         }
 
         private string[] GetFilterConditions(Table table)
@@ -84,6 +99,27 @@ namespace Cwi.TreinamentoTesteAutomatizado.Controllers
             }
 
             return filters.ToArray();
+        }
+
+        private string[] GetFilterValues(Table table)
+        {
+            List<string> values = new List<string>();
+
+            for (int row = 0; row < table.Rows.Count; row++)
+            {
+                var rowValues = new List<string>();
+
+                for (int header = 0; header < table.Header.Count; header++)
+                {
+                    string value = table.Rows[row][header];
+
+                    rowValues.Add(value);
+                }
+
+                values.Add($"({string.Join(", ", rowValues)})");
+            }
+
+            return values.ToArray();
         }
     }
 }

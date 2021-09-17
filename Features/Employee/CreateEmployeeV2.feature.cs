@@ -130,18 +130,18 @@ this.FeatureBackground();
 #line 20
  testRunner.Then("o código do retorno será \'201\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "Id",
                             "Name",
                             "Email",
                             "Active"});
-                table3.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "1",
                             string.Format("\'{0}\'", name),
                             string.Format("\'{0}\'", email),
                             "True"});
 #line 21
- testRunner.And("o registro estará disponível na tabela \'Employee\' da base de dados", ((string)(null)), table3, "E ");
+ testRunner.And("o registro estará disponível na tabela \'Employee\' da base de dados", ((string)(null)), table5, "E ");
 #line hidden
             }
             this.ScenarioCleanup();

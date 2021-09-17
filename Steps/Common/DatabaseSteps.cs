@@ -25,6 +25,13 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.Common
             await PostgreDatabaseController.ClearDatabase();
         }
 
+        [Given(@"que os seguintes registros estejam inseridos na tabela '(.*)'")]
+        public async Task DadoQueOsSeguintesRegistrosEstejamInseridosNaTabela(string tableName, Table table)
+        {
+            await PostgreDatabaseController.InsertDatabase(tableName, table);
+        }
+
+
         [Then(@"o registro estará disponível na tabela '(.*)' da base de dados")]
         public async Task EntaoORegistroEstaraDisponivelNaTabelaDaBaseDeDados(string tableName, Table table)
         {

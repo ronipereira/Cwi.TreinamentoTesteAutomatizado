@@ -118,27 +118,51 @@ this.FeatureBackground();
 #line 9
  testRunner.Given("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Email",
+                            "Active"});
+                table1.AddRow(new string[] {
+                            "\'Funcionario 1\'",
+                            "\'funcionario1@empresa.com.br\'",
+                            "True"});
 #line 10
+ testRunner.And("que os seguintes registros estejam inseridos na tabela \'Employee\'", ((string)(null)), table1, "E ");
+#line hidden
+#line 13
  testRunner.When("realizar uma chama do tipo \'POST\' para o endpoint \'v1/companies\' com o corpo da r" +
                         "equisição", string.Format("\t{{\r\n\t  \"name\": \"{0}\",\r\n\t  \"code\": \"001\",\r\n\t  \"maxEmployeesNumber\": 5\r\n\t}}", name), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
-#line 18
+#line 21
  testRunner.Then("o código do retorno será \'201\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "Id",
                             "Code",
                             "Name",
                             "MaxEmployeesNumber",
                             "Active"});
-                table1.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "1",
                             "\'001\'",
                             string.Format("\'{0}\'", name),
                             "5",
                             "True"});
-#line 19
- testRunner.And("o registro estará disponível na tabela \'Company\' da base de dados", ((string)(null)), table1, "E ");
+#line 22
+ testRunner.And("o registro estará disponível na tabela \'Company\' da base de dados", ((string)(null)), table2, "E ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Id",
+                            "Name",
+                            "Email",
+                            "Active"});
+                table3.AddRow(new string[] {
+                            "1",
+                            "\'Funcionario 1\'",
+                            "\'funcionario1@empresa.com.br\'",
+                            "True"});
+#line 25
+ testRunner.And("o registro estará disponível na tabela \'Employee\' da base de dados", ((string)(null)), table3, "E ");
 #line hidden
             }
             this.ScenarioCleanup();
