@@ -176,15 +176,15 @@ this.FeatureBackground();
  testRunner.Then("o funcionário será cadastrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                            "id",
-                            "name",
-                            "email",
-                            "active"});
+                            "Id",
+                            "Name",
+                            "Email",
+                            "Active"});
                 table1.AddRow(new string[] {
                             "1",
-                            "\'Funcionário 1\'",
+                            "\'Funcionario 1\'",
                             "\'funcionario1@empresa.com.br\'",
-                            "\'true\'"});
+                            "True"});
 #line 23
  testRunner.And("o registro estará disponível na tabela \'Employee\' da base de dados", ((string)(null)), table1, "E ");
 #line hidden

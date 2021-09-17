@@ -21,5 +21,5 @@ Cenario: Cadastro de funcionário com sucesso
 	E que seja solicitado a criação de um novo funcionário
 	Então o funcionário será cadastrado
 	E o registro estará disponível na tabela 'Employee' da base de dados
-		| id | name            | email                         | active |
-		| 1  | 'Funcionário 1' | 'funcionario1@empresa.com.br' | 'true' |
+		| Id | Name            | Email                         | Active |
+		| 1  | 'Funcionario 1' | 'funcionario1@empresa.com.br' | True   |
