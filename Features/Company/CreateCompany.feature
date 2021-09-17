@@ -26,7 +26,7 @@ Cenario: Criação de empresa com sucesso
 	E o registro estará disponível na tabela 'Employee' da base de dados
 		| Id | Name            | Email                         | Active |
 		| 1  | 'Funcionario 1' | 'funcionario1@empresa.com.br' | True   |
-
+		| 2  | 'Funcionario 2' | 'funcionario2@empresa.com.br' | True   |
 	Exemplos: 
 		| Name      |
 		| Empresa 1 |
