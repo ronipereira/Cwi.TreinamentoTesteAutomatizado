@@ -25,11 +25,8 @@ Reinicie o docker.
 
 ** O passo a passo completo para atualização do kernel pode ser acessado através do [link](https://docs.microsoft.com/pt-br/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package).
 
-## Aplicações
-Para o treinamento de automação de testes, usaremos uma Web Api desenvolvida em .Net5 com o banco de dados Postgres conteinerizados em um ambiente docker. 
-
 ## Iniciando as aplicações
-Baixe o fonte da aplicação disponibilizada durante o treinamento em uma pasta de sua preferência. Abra o *PowerShell* ou *prompt de comando*(CMD) na pasta /ci e execute o comando abaixo para gerar as imagens necessárias das aplicações que serão utilizadas: 
+Baixe o fonte da aplicação disponibilizada no [repositório](https://github.com/ronipereira/Cwi.WebApi.TesteAutomatizado.git) em uma pasta de sua preferência. Abra o *PowerShell* ou *prompt de comando*(CMD) na pasta /ci e execute o comando abaixo para gerar as imagens necessárias das aplicações que serão utilizadas: 
 
 ```docker-compose build```
 
