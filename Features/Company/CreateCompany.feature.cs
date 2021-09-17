@@ -165,6 +165,11 @@ this.FeatureBackground();
                             "\'Funcionario 1\'",
                             "\'funcionario1@empresa.com.br\'",
                             "True"});
+                table3.AddRow(new string[] {
+                            "2",
+                            "\'Funcionario 2\'",
+                            "\'funcionario2@empresa.com.br\'",
+                            "True"});
 #line 26
  testRunner.And("o registro estará disponível na tabela \'Employee\' da base de dados", ((string)(null)), table3, "E ");
 #line hidden
