@@ -126,14 +126,18 @@ this.FeatureBackground();
                             "\'Funcionario 1\'",
                             "\'funcionario1@empresa.com.br\'",
                             "True"});
+                table1.AddRow(new string[] {
+                            "\'Funcionario 2\'",
+                            "\'funcionario2@empresa.com.br\'",
+                            "True"});
 #line 10
  testRunner.And("que os seguintes registros estejam inseridos na tabela \'Employee\'", ((string)(null)), table1, "E ");
 #line hidden
-#line 13
+#line 14
  testRunner.When("realizar uma chama do tipo \'POST\' para o endpoint \'v1/companies\' com o corpo da r" +
                         "equisição", string.Format("\t{{\r\n\t  \"name\": \"{0}\",\r\n\t  \"code\": \"001\",\r\n\t  \"maxEmployeesNumber\": 5\r\n\t}}", name), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
-#line 21
+#line 22
  testRunner.Then("o código do retorno será \'201\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -148,7 +152,7 @@ this.FeatureBackground();
                             string.Format("\'{0}\'", name),
                             "5",
                             "True"});
-#line 22
+#line 23
  testRunner.And("o registro estará disponível na tabela \'Company\' da base de dados", ((string)(null)), table2, "E ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -161,7 +165,7 @@ this.FeatureBackground();
                             "\'Funcionario 1\'",
                             "\'funcionario1@empresa.com.br\'",
                             "True"});
-#line 25
+#line 26
  testRunner.And("o registro estará disponível na tabela \'Employee\' da base de dados", ((string)(null)), table3, "E ");
 #line hidden
             }

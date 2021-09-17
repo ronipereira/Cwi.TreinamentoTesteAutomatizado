@@ -10,6 +10,7 @@ Cenario: Criação de empresa com sucesso
 	E que os seguintes registros estejam inseridos na tabela 'Employee'
 		| Name            | Email                         | Active |
 		| 'Funcionario 1' | 'funcionario1@empresa.com.br' | True   |
+		| 'Funcionario 2' | 'funcionario2@empresa.com.br' | True   |
 	Quando realizar uma chama do tipo 'POST' para o endpoint 'v1/companies' com o corpo da requisição
 		"""
 			{

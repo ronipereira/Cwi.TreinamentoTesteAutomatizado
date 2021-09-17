@@ -62,7 +62,7 @@ namespace Cwi.TreinamentoTesteAutomatizado.Controllers
         public async Task<IEnumerable<object>> InsertDatabase(string tableName, Table table)
         {
             var insertColumns = string.Join(", ", GetColumnsForInsert(table));
-            var values = string.Join(" AND ", GetFilterValues(table));
+            var values = string.Join(", ", GetFilterValues(table));
 
             var query = $"INSERT INTO {tableName}({insertColumns}) VALUES {values}";
 
