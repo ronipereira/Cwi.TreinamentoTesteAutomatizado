@@ -3,8 +3,7 @@ Treinamento testes automatizados: C# WebApi e SpecFlow.
 
 
 ## Docker
-Docker é uma tecnologia que permite aos desenvolvedores empacotar, entregar e executar
-aplicações em containers leves e autossuficientes.
+Docker é uma tecnologia que permite aos desenvolvedores empacotar, entregar e executar aplicações em containers leves e autossuficientes.
 
 ## Instalação
 Faça o [download](https://www.docker.com/get-started) do docker para o sistema operacional de sua preferência e prossiga com a instalação, em caso de dúvidas consulte o [guia de instalação](https://docs.docker.com/engine/install/).
@@ -30,7 +29,7 @@ Baixe o fonte da aplicação disponibilizada no [repositório](https://github.co
 
 ```docker-compose build```
 
-Após a conclusão do build, execute o comando abaixo para iniciar os containers.
+Após a conclusão do build, execute o comando abaixo para iniciar os containers:
 
 ```docker-compose up -d```
 
